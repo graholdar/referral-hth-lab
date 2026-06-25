@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 一站式体验指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1e2a36;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 0 3rem;
+        }
+
+        /* Hero 区 */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem 2.8rem;
+            background: linear-gradient(145deg, #e7f3f0 0%, #d0e6e0 100%);
+            border-radius: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0, 90, 80, 0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #005a4f;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #1b5e55;
+            max-width: 580px;
+            margin: 0 auto 1.2rem;
+            opacity: 0.8;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(0, 128, 115, 0.12);
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #006f61;
+        }
+
+        /* 网格卡片通用 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.4rem;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 14px rgba(0, 80, 70, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0, 128, 115, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 100, 85, 0.08);
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #005a4f;
+            margin-bottom: 0.4rem;
+        }
+
+        .card p {
+            font-size: 0.96rem;
+            color: #2f4050;
+            line-height: 1.5;
+        }
+
+        /* 说明区 —— 更丰富的段落 */
+        .intro-block {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 2.2rem 2rem;
+            margin: 2rem 0 2.8rem;
+            border-left: 5px solid #008073;
+            box-shadow: 0 2px 12px rgba(0, 90, 75, 0.04);
+        }
+
+        .intro-block h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #004d42;
+            margin-bottom: 1rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 0.9rem;
+            color: #2a3b49;
+        }
+
+        .intro-block strong {
+            color: #007a6a;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #e3f0ec;
+            border-radius: 1.6rem;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2.8rem 0 2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #004d42;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #005a4f;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            color: #2b3e4b;
+            padding-left: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        /* 底部 */
+        .footer-links {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid rgba(0, 128, 115, 0.15);
+            margin-top: 2rem;
+        }
+
+        .footer-links p {
+            font-size: 0.95rem;
+            color: #3e5b5b;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-links a {
+            color: #007a6a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.2s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #007a6a;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 2.2rem 1rem 2rem;
+                border-radius: 1.4rem;
+            }
+            .grid-cards {
+                gap: 1.2rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .intro-block {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* 小点缀 */
+        .accent-dot {
+            color: #008073;
+            font-weight: 600;
+        }
+        .inline-highlight {
+            background: #d7ece7;
+            padding: 0 0.3rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <section class="hero">
+        <h1>华体会 · 从这里开始</h1>
+        <p class="sub">一个让你快速了解站点用途、找到对应功能的简洁落脚点。</p>
+        <span class="tagline">🏷️ 功能清晰 · 体验直接</span>
+    </section>
+
+    <!-- 优势区：卡片网格 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="icon">🧭</div>
+            <h3>即开即用</h3>
+            <p>无需繁琐注册流程，打开页面就能了解主要功能与方向，节省你的时间。</p>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>信息聚焦</h3>
+            <p>只展示关键模块：平台定位、常见问题与入口提示，不堆砌无关内容。</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔗</div>
+            <h3>入口明确</h3>
+            <p>所有指向性内容集中在一处，方便你快速判断下一步操作。</p>
+        </div>
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>移动优先</h3>
+            <p>卡片与排版针对手机屏幕优化，随手打开也能获得舒适的浏览体验。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：更详细地介绍用途 -->
+    <section class="intro-block">
+        <h2>这个页面是做什么的？</h2>
+        <p>
+            面对一个新网站时，大多数人最先想确认的是：<strong>这里提供什么？我该怎么用？</strong>
+            这个介绍页就是为了回答这两个问题而设计的。它不绕弯子，直接展示 <span class="inline-highlight">华体会</span> 相关的主要模块与服务方向，让初次接触的人能快速建立认知。
+        </p>
+        <p>
+            页面内容围绕实用性展开，没有大段的空泛介绍，而是通过卡片和简明段落把功能拆解成可以快速浏览的信息块。无论是通过手机还是电脑访问，布局都会自动适配，让阅读保持轻松。
+        </p>
+        <p>
+            如果你已经了解大概，也可以直接通过下方的链接进入主站，进一步探索细节。
+        </p>
+    </section>
+
+    <!-- FAQ 摘要（简洁有重点） -->
+    <section class="faq-summary">
+        <h2>🤔 你可能想问</h2>
+        <div class="faq-item">
+            <span class="q">▸ 这个网站和「华体会」是什么关系？</span>
+            <p class="a">这是 <a href="https://referral-hth.com.cn">华体会</a> 的引导介绍页，目的是让访客在进入主站之前对功能与内容有一个基本印象。</p>
+        </div>
+        <div class="faq-item">
+            <span class="q">▸ 我需要注册才能使用吗？</span>
+            <p class="a">不需要。浏览介绍页无需任何注册。主站的具体功能请以实际页面说明为准。</p>
+        </div>
+        <div class="faq-item">
+            <span class="q">▸ 页面里的链接安全吗？</span>
+            <p class="a">本站链接均指向 https://referral-hth.com.cn 域名，未添加任何外部跳转，你可以放心浏览。</p>
+        </div>
+        <div class="faq-item" style="margin-bottom: 0;">
+            <span class="q">▸ 遇到问题或想了解更多？</span>
+            <p class="a">你可以通过主站内的联系方式获取帮助，或直接参考页面上的提示信息。</p>
+        </div>
+    </section>
+
+    <!-- 底部链接：自然嵌入句子 -->
+    <footer class="footer-links">
+        <p>欢迎访问 <a href="https://referral-hth.com.cn">华体会</a> —— 从这里开始了解你的下一个体验。</p>
+        <p style="font-size:0.85rem; color: #5b7272; margin-top: 0.6rem;">简洁 · 直接 · 以你为先</p>
+    </footer>
+
+</div>
+</body>
+</html>
