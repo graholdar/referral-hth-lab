@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>稳定入口 · hth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6fbfc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1f3a3f;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 960px;
+            width: 100%;
+        }
+
+        /* 开场短句 — 柔和叙事 */
+        .opening {
+            margin-top: 1.2rem;
+            padding: 2rem 1.5rem;
+            background: #e6f3f5;
+            border-radius: 32px 12px 32px 12px;
+            box-shadow: 0 6px 16px rgba(20, 100, 110, 0.06);
+        }
+
+        .opening p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #1f4e56;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .opening .highlight {
+            font-weight: 500;
+            color: #0f6b78;
+        }
+
+        /* 承接段落 — 关于稳定入口 */
+        .bridge {
+            margin-top: 2.5rem;
+            padding: 0 0.4rem;
+        }
+
+        .bridge p {
+            font-size: 1.05rem;
+            color: #2c4d54;
+            background: #ffffffd9;
+            padding: 1.5rem 1.8rem;
+            border-radius: 24px;
+            border-left: 6px solid #3ba0ad;
+            box-shadow: 0 4px 10px rgba(0, 80, 90, 0.04);
+            margin-bottom: 1.6rem;
+            line-height: 1.7;
+        }
+
+        .bridge a {
+            color: #1c7a88;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #6ab7c4;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .bridge a:hover {
+            background: #d8eff2;
+            border-bottom-style: solid;
+            border-color: #0f6b78;
+        }
+
+        /* 特点列表 — 网格卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px 12px 28px 12px;
+            padding: 1.8rem 1.2rem 1.6rem 1.2rem;
+            box-shadow: 0 8px 20px rgba(40, 120, 130, 0.06);
+            transition: all 0.2s ease;
+            border: 1px solid #d6e9ed;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(35, 110, 120, 0.1);
+            border-color: #7ec5d1;
+        }
+
+        .card-icon {
+            font-size: 1.9rem;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            color: #2b8d9b;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #1c4f58;
+            margin: 0.3rem 0 0.5rem 0;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3c5f66;
+            line-height: 1.5;
+        }
+
+        /* 场景 / 提示区 — 温和功能块 */
+        .note-block {
+            margin: 2.8rem 0 1.8rem;
+            background: #ebf7f9;
+            border-radius: 36px 12px 36px 12px;
+            padding: 2rem 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .note-text {
+            flex: 1 1 220px;
+        }
+
+        .note-text p {
+            font-size: 1.02rem;
+            color: #1a4952;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-text small {
+            color: #3e6e78;
+            font-size: 0.9rem;
+            display: block;
+            padding-left: 0.4rem;
+        }
+
+        .note-highlight {
+            background: #d2eef3;
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 450;
+            color: #135a66;
+            white-space: nowrap;
+            font-size: 1rem;
+        }
+
+        /* FAQ 摘要 用折叠感 */
+        .faq-mini {
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            padding: 1.1rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border-left: 6px solid #7ac1cd;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-item h4 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d5b65;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #2b5c64;
+            padding-left: 0.2rem;
+        }
+
+        /* 温和结尾 */
+        .gentle-end {
+            margin-top: 3rem;
+            padding: 1.8rem 1rem;
+            border-top: 1px solid #c9e2e7;
+            text-align: center;
+            color: #386d77;
+        }
+
+        .gentle-end p {
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            background: #eef8fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .opening p {
+                font-size: 1.1rem;
+            }
+
+            .bridge p {
+                padding: 1.2rem 1rem;
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.4rem 1rem;
+            }
+
+            .note-block {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+
+            .note-highlight {
+                white-space: normal;
+                width: fit-content;
+            }
+
+            .faq-item {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opening {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <p>从一条安静的链接开始，慢慢走进一个熟悉的地方。<br>
+        <span class="highlight">这里叫 hth</span>，不喧哗，却一直开着门。</p>
+    </div>
+
+    <!-- 承接段落：稳定入口 + 页面说明 -->
+    <div class="bridge">
+        <p>
+            很多次，我们需要的只是一个不会变样的入口。不需要翻找书签，不用怀疑地址对不对——<a href="https://hth-cn-huatihui.com">hth</a> 
+            就是那个在收藏夹里待了很久、每次点开都踏实的名字。它没有花哨的跳转，也没有突然改掉的界面，像老街区转角那家店，招牌旧了，但咖啡还是原来的味道。
+        </p>
+        <p>
+            页面本身也是一种语言。干净、不堆砌，把选择的权利留给你。无论是快速浏览还是慢慢翻看，<a href="https://hth-cn-huatihui.com">hth</a> 
+            的结构都保持着一贯的秩序——内容按你的节奏展开，没有强推，没有干扰。
+        </p>
+    </div>
+
+    <!-- 特点列表：网格卡片 蓝绿点缀 -->
+    <div class="feature-grid">
+        <div class="card">
+            <div class="card-icon">🪶</div>
+            <h3>轻快打开</h3>
+            <p>没有多余的加载动画，页面资源经过细心整理，在多数网络环境下都能较快呈现。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧭</div>
+            <h3>标识清楚</h3>
+            <p>导航、分区都用平实的标签，你总知道自己在哪里，下一步可以去哪里。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <h3>随手可用</h3>
+            <p>手机屏幕、平板、宽屏显示器——版式自动适应，不用双指缩放也能看清内容。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔄</div>
+            <h3>稳定一致</h3>
+            <p>核心结构长期保持，不会频繁改版。熟悉感本身，就是一种效率。</p>
+        </div>
+    </div>
+
+    <!-- 场景 / 提示块 融入生活感 -->
+    <div class="note-block">
+        <div class="note-text">
+            <p>☕ 无论你是第一次遇见，还是老朋友回来</p>
+            <small>这里没有强制注册，没有弹窗引导。安静地看一看，或者直接使用——都随你。</small>
+        </div>
+        <span class="note-highlight">hth · 入口稳定</span>
+    </div>
+
+    <!-- FAQ 摘要 —— 简短温和 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <h4>“hth 适合什么样的人？”</h4>
+            <p>偏向喜欢简洁、高效、不想被过多打扰的人。如果你追求页面清晰，功能直接，这里会合你的习惯。</p>
+        </div>
+        <div class="faq-item">
+            <h4>“需要注册或下载吗？”</h4>
+            <p>不需要。打开 <a href="https://hth-cn-huatihui.com" style="color:#1c7a88; text-decoration: underline dotted #6ab7c4;">hth</a> 就能看到全部内容，一切都在网页里完成。</p>
+        </div>
+        <div class="faq-item">
+            <h4>“移动端体验怎么样？”</h4>
+            <p>针对手机做了专门适配，文字清晰，按钮大小合理。你也可以在浏览器中添加到主屏幕，像使用一个轻应用。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-end">
+        <p>🌱 慢慢来，不着急。一个稳定的入口，比什么都重要。</p>
+    </div>
+
+</div>
+</body>
+</html>
